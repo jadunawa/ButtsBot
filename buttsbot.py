@@ -59,7 +59,7 @@ while True:
                     if talks_about_butts and str(comment.author)!="buttsbot":
                         print("Comment author: "+str(comment.author))
                         # TODO: Randomize which imgur link is posted as part of the reply string using a new function
-                        #comment.reply(reply_string) #reply to the comment
+                        comment.reply(reply_string) #reply to the comment
                         print("Replied to a comment: " +str(comment.permalink))
                     already_checked.append(comment.permalink)  # add comment to already_checked
                     c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
