@@ -10,15 +10,19 @@ from datetime import datetime, date, timedelta
 conn=sqlite3.connect('links.db')
 c=conn.cursor()
 
-arraytest=c.execute("SELECT link FROM permalinks WHERE link='https://www.reddit.com/r/Astros/comments/3d9hru/announcing_me_buttsbot/safdsadfsaasdf'")
-print arraytest.fetchone()
-
 #c.execute('''CREATE TABLE permalinks
                # (link text)''')
 conn.commit()
 
+#get password
+config_file=open("buttsbot_config.txt",'r')
+config_file.readline()
+pw_line=config_file.readline()
+pw_string=str(pw_line[4:-1])
+print pw_string
+
 r = praw.Reddit(user_agent='ButtsBot!')
-r.login('buttsbot', 'gostros', disable_warning=True)
+r.login('buttsbot', pw_string, disable_warning=True)
 top10 = r.get_subreddit('astros').get_hot(limit=10)
 
 already_checked = []  # make list of comment permalinks
