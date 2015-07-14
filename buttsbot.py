@@ -2,8 +2,17 @@ __author__ = 'Judson Dunaway-Barlow'
 
 import praw
 import sys
+import sqlite3
 import time
 from datetime import datetime, date, timedelta
+
+#connect to sqlite database
+conn=sqlite3.connect('links.db')
+c=conn.cursor()
+
+#c.execute('''CREATE TABLE permalinks
+               # (link text)''')
+conn.commit()
 
 r = praw.Reddit(user_agent='Test script by /u/jdb12')
 r.login('buttsbot', 'gostros', disable_warning=True)
@@ -11,7 +20,7 @@ top10 = r.get_subreddit('astros').get_hot(limit=10)
 
 already_checked = []  # make list of comment permalinks
 
-keywords = ['butt', 'butts', 'booty', 'buttcheeks', 'keyster', 'heinie']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', 'buttcheeks', 'keyster', 'heinie']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 
 reply_string = '#THIS BOT IS STILL IN DEVELOPMENT\n\nYou have activated the Astros\' buttsbot! Here is a picture of an [Astros butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Please send a message to /u/jdb12.'
@@ -41,9 +50,13 @@ while True:
                     if talks_about_butts and str(comment.author)!="buttsbot":
                         print("Comment author: "+str(comment.author))
                         # TODO: Randomize which imgur link is posted as part of the reply string using a new function
-                        # comment.reply(reply_string) #reply to the comment
+                        #comment.reply(reply_string) #reply to the comment
                         print("Replied to a comment: " +str(comment.permalink))
                     already_checked.append(comment.permalink)  # add comment to already_checked
+                    perma=str(comment.permalink)
+                    c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
+                    conn.commit()
             print "-----------------------------------------------------------------"
         i += 1
-    time.sleep(5)  # sleep for a little bit to allow time for new comments to be made
+    print("Sleeping for a minute")
+    time.sleep(60)  # sleep for a little bit to allow time for new comments to be made
