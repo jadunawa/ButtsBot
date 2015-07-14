@@ -27,8 +27,8 @@ while True:
         submission_date = datetime.fromtimestamp(submission.created_utc)  # get submission date
         day_ago = datetime.fromtimestamp(time.time() - (24 * 60 * 60))  # find date for 24 hours ago
         # ignore posts over 24 hours old
-        if (int((date_one - date_two).days) < 2):
-            print("Got here")
+        if (int((day_ago - submission_date).days) < 2):
+            print(day_ago - submission_date).days
             sys.exit(0)
             submission.replace_more_comments(limit=None, threshold=0)  # get all comments instead of just first few
             all_comments = submission.comments  # make array of comments
