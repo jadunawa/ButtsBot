@@ -10,11 +10,14 @@ from datetime import datetime, date, timedelta
 conn=sqlite3.connect('links.db')
 c=conn.cursor()
 
+arraytest=c.execute("SELECT link FROM permalinks WHERE link='https://www.reddit.com/r/Astros/comments/3d9hru/announcing_me_buttsbot/safdsadfsaasdf'")
+print arraytest.fetchone()
+
 #c.execute('''CREATE TABLE permalinks
                # (link text)''')
 conn.commit()
 
-r = praw.Reddit(user_agent='Test script by /u/jdb12')
+r = praw.Reddit(user_agent='ButtsBot!')
 r.login('buttsbot', 'gostros', disable_warning=True)
 top10 = r.get_subreddit('astros').get_hot(limit=10)
 
@@ -43,7 +46,9 @@ while True:
             # Iterate through comments in the submission
             for comment in flaternized_comments:
                 # Ignore comments that have already been checked to avoid multiple replies to the same comment
-                if (comment.permalink not in already_checked):
+                perma=str(comment.permalink)
+                if (str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
+                    print "NONE OMG THIS WORKS"
                     l_comment = str(comment).lower()  # make the comment lowercase
                     talks_about_butts = any(string in l_comment for string in keywords)  # set up boolean for talking about butts
                     # If the comment talks about butts and isn't a comment by this bot, respond with the correct string
@@ -53,7 +58,6 @@ while True:
                         #comment.reply(reply_string) #reply to the comment
                         print("Replied to a comment: " +str(comment.permalink))
                     already_checked.append(comment.permalink)  # add comment to already_checked
-                    perma=str(comment.permalink)
                     c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
                     conn.commit()
             print "-----------------------------------------------------------------"
