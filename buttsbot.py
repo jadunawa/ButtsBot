@@ -27,7 +27,7 @@ top10 = r.get_subreddit('astros').get_hot(limit=10)
 
 already_checked = []  # make list of comment permalinks
 
-keywords = ['butt', 'booty', 'buttcheeks', 'keyster', 'heinie', 'derriere']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', 'buttcheeks', 'keyster', 'heinie', 'derriere', 'posterior']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 
 reply_string = 'You have activated the Astros\' buttsbot! Here is a picture of an [Astros butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Please send me a message!'
