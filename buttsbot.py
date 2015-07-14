@@ -16,13 +16,13 @@ conn.commit()
 
 #get password
 config_file=open("buttsbot_config.txt",'r')
-config_file.readline()
+un_line=config_file.readline()
+un_string=un_line[4:-1]
 pw_line=config_file.readline()
-pw_string=str(pw_line[4:-1])
-print pw_string
+pw_string=pw_line[4:-1]
 
 r = praw.Reddit(user_agent='ButtsBot!')
-r.login('buttsbot', pw_string, disable_warning=True)
+r.login(un_string, pw_string, disable_warning=True)
 top10 = r.get_subreddit('astros').get_hot(limit=10)
 
 already_checked = []  # make list of comment permalinks
