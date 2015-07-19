@@ -27,7 +27,7 @@ top10 = r.get_subreddit('astros').get_hot(limit=10)
 
 already_checked = []  # make list of comment permalinks
 
-keywords = ['butt', 'booty', ' ass ', 'ass.' 'keyster', 'heinie', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'bum', 'caboose']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', ' ass ', 'ass.' 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'bum', 'caboose', 'rump', 'fanny', 'glutes']  # make list of words to trigger the comment reply
 butt_links=['http://imgur.com/Vkx6fMI']
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 
