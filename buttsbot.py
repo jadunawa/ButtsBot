@@ -1,5 +1,8 @@
 __author__ = 'Judson Dunaway-Barlow'
 
+#Made with PRAW: https://praw.readthedocs.org/en/latest/
+#Buttsbot original code at: https://github.com/jadunawa/ButtsBot
+
 import praw
 import sys
 import sqlite3
@@ -21,15 +24,16 @@ un_string=un_line[4:-1]
 pw_line=config_file.readline()
 pw_string=pw_line[4:-1]
 
-r = praw.Reddit(user_agent='ButtsBot!')
+r = praw.Reddit(user_agent='I post butts!')
 r.login(un_string, pw_string, disable_warning=True)
 top10 = r.get_subreddit('astros').get_hot(limit=10)
 
 already_checked = []  # make list of comment permalinks
 
+#TODO: Work on regex
 keywords = ['butt', 'booty', ' ass ', 'ass.' 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'bum', 'caboose', 'rump', 'fanny', 'glutes']  # make list of words to trigger the comment reply
-butt_links=['http://imgur.com/Vkx6fMI', 'http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg']
 # TODO: Get a list of a bunch of imgur links to Astros Butts
+butt_links=['http://imgur.com/Vkx6fMI', 'http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg']
 
 reply_string = 'You have activated the Astros\' buttsbot! Here is a picture of an [Astros butt!](http://imgur.com/Vkx6fMI) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Please send me a message!'
 
