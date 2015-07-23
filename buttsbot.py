@@ -67,6 +67,7 @@ while True:
                         butt_number=random.randint(0,len(butt_links)-1)
                         full_reply="You have activated the Astros buttsbot! Here is a picture of [{}) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Suggestions for more butts? Please send me a message!".format(butt_links[butt_number])
                         comment.reply(full_reply) #reply to the comment
+                        comment.upvote() #upvote the comment
                         print("Replied to a comment: " +str(comment.permalink))
                     already_checked.append(comment.permalink)  # add comment to already_checked
                     c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
