@@ -11,10 +11,10 @@ import sqlite3
 import time
 from datetime import datetime, date, timedelta
 
-print "HELLO" + str(datetime.now())
+print str(datetime.now())
 
 path_to_script=os.path.dirname(__file__)
-print path_to_script
+#print path_to_script
 
 #connect to sqlite database
 conn=sqlite3.connect(path_to_script+'/links.db')
@@ -34,17 +34,13 @@ pw_string=pw_line[4:-1]
 r = praw.Reddit(user_agent='I post butts!')
 r.login(un_string, pw_string, disable_warning=True)
 
-already_checked = []  # make list of comment permalinks
-
 #TODO: Work on regex
 #fuck regex
-keywords = ['butt', 'booty', 'ass', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear.', ' rear ', 'rearend', 'bum', 'caboose', 'rump', 'fanny', 'glutes']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', 'bootay', ' ass ',' ass.', 'ass?', 'ass,', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear.', ' rear ', 'rearend', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
-    butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
-                'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg', 'Conger butt!](http://i.imgur.com/P5C2BGK.jpg',
-                'Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg', 'McHugh butt!](http://i.imgur.com/hClbvuL.jpg',
-                'Ausmus and Berkman butt!](http://i.imgur.com/mL5TtMx.jpg', 'Minor Leagues Lowrie butt!](http://i.imgur.com/VTxAaqn.jpg',
-                'Kazmir Butt!](http://imgur.com/ShvX5Xq.jpg']
+butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg','Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg', 'Conger butt!](http://i.imgur.com/P5C2BGK.jpg','Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg', 'McHugh butt!](http://i.imgur.com/hClbvuL.jpg',
+            'Ausmus and Berkman butt!](http://i.imgur.com/mL5TtMx.jpg', 'Minor Leagues Lowrie butt!](http://i.imgur.com/VTxAaqn.jpg',
+            'Kazmir Butt!](http://imgur.com/ShvX5Xq.jpg', 'Biggio Butt!](http://i.imgur.com/7DlspmL.jpg', 'Biggio Butt!](http://i.imgur.com/GYwHHxV.jpg']
 
 subreddit = r.get_subreddit('Astros')  # get /r/Astros
 

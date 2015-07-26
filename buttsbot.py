@@ -36,7 +36,7 @@ keywords = ['butt', 'booty', ' ass ', 'ass.' 'keyster', 'heinie', 'hiney', 'derr
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg', 'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg',
             'Conger butt!](http://i.imgur.com/P5C2BGK.jpg', 'Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg', 'McHugh butt!](http://i.imgur.com/hClbvuL.jpg', 'Ausmus and Berkman butt!](http://i.imgur.com/mL5TtMx.jpg',
-            'Minor Leagues Lowrie butt!](http://i.imgur.com/VTxAaqn.jpg']
+            'Minor Leagues Lowrie butt!](http://i.imgur.com/VTxAaqn.jpg','Kazmir Butt!](http://imgur.com/ShvX5Xq.jpg']
 
 subreddit = r.get_subreddit('Astros')  # get /r/Astros
 
