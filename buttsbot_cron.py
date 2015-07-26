@@ -72,7 +72,6 @@ for submission in subreddit.get_hot(limit=20):
                     comment.reply(full_reply) #reply to the comment
                     comment.upvote() #upvote the comment
                     print("Replied to a comment: " +str(comment.permalink))
-                already_checked.append(comment.permalink)  # add comment to already_checked
                 c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
                 conn.commit()
         print "-----------------------------------------------------------------"
