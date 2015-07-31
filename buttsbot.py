@@ -1,3 +1,5 @@
+#THIS FILE IS A LITTLE OUTDATED. buttsbot_cron.py IS MOST UPDATED VERSION
+
 __author__ = 'Judson Dunaway-Barlow'
 
 #Made with PRAW: https://praw.readthedocs.org/en/latest/
