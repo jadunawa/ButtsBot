@@ -36,10 +36,15 @@ for i in range(0,10):
         #delete comment
         print "got to deleting link"
         print "deleting: "+str(permalink)
+        execute_string="DELETE FROM permalinks WHERE link=\'"
+        execute_string+=permalink
+        execute_string+="\'"
+        print execute_string
+        #c.execute(execute_string)
         c.execute('''DELETE FROM permalinks WHERE link=(?)''',(permalink,))
 
     #print submission
 
     print "--------------------------------------------------------------------------------------------------------------------------"
 
-#if post is too old, delete comment?
+conn.commit()
