@@ -42,8 +42,9 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http:/
             'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg', 'Conger butt!](http://i.imgur.com/P5C2BGK.jpg', 'Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg',
             'McHugh butt!](http://i.imgur.com/hClbvuL.jpg','Ausmus and Berkman butt!](http://i.imgur.com/mL5TtMx.jpg',
             'Minor Leagues Lowrie butt!](http://i.imgur.com/VTxAaqn.jpg','Kazmir butt!](http://imgur.com/ShvX5Xq.jpg',
-            'Biggio butt!](http://i.imgur.com/7DlspmL.jpg', 'Biggio butt!](http://i.imgur.com/GYwHHxV.jpg','Marwin butt!](http://i.imgur.com/mqYVpy9.jpg',
-            'Julia Morales butt!](http://imgur.com/SRzPWIJ.jpg']
+            'Biggio butt!](http://i.imgur.com/7DlspmL.jpg','Biggio butt!](http://i.imgur.com/GYwHHxV.jpg','Marwin butt!](http://i.imgur.com/mqYVpy9.jpg',
+            'Julia Morales butt!](http://imgur.com/SRzPWIJ.jpg','GoGo butt!](http://i.imgur.com/Xirtvvv.jpg',
+            'Correa butt!](http://i.imgur.com/Y0JPeJK.jpg','Altuve butt!](http://i.imgur.com/bU64HWo.jpg']
 
 subreddit = r.get_subreddit('Astros')  # get /r/Astros
 

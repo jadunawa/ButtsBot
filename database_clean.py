@@ -19,9 +19,7 @@ permas_list=c.execute("SELECT link FROM permalinks ").fetchall()
 
 print len(permas_list)
 
-#for link in permas_list:
-for i in range(0,10):
-    full_link=permas_list[i]
+for full_link in permas_list:
     link = "\""+ str(full_link)+"\""
     permalink=link[4:-4]
 
@@ -29,22 +27,14 @@ for i in range(0,10):
     submission_date = datetime.fromtimestamp(submission.created_utc)  # get submission date
 
     does_it_find_a_match=str(c.execute('''SELECT link FROM permalinks WHERE link=(?)''',(str(full_link),)))
-    if does_it_find_a_match!="None":
-        print "WE FOUND A LINK"
+    #if does_it_find_a_match!="None":
+        #print "WE FOUND A LINK"
 
+    #delete comment from database
     if (int((day_ago - submission_date).days) > 2):
-        #delete comment
-        print "got to deleting link"
         print "deleting: "+str(permalink)
-        execute_string="DELETE FROM permalinks WHERE link=\'"
-        execute_string+=permalink
-        execute_string+="\'"
-        print execute_string
-        #c.execute(execute_string)
         c.execute('''DELETE FROM permalinks WHERE link=(?)''',(permalink,))
+        print "--------------------------------------------------------------------------------------------------------------------------"
 
+    conn.commit()
     #print submission
-
-    print "--------------------------------------------------------------------------------------------------------------------------"
-
-conn.commit()
