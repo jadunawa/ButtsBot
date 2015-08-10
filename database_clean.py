@@ -17,11 +17,12 @@ day_ago = datetime.fromtimestamp(time.time() - (48 * 60 * 60))  # find date for 
 
 permas_list=c.execute("SELECT link FROM permalinks ").fetchall()
 
-print len(permas_list)
+before_length=len(permas_list)
+print "Before: "+str(len(permas_list))
 i=0
 
 for full_link in permas_list:
-    print "Scanning "+str(i)
+    #print "Scanning "+str(i)
     link = "\""+ str(full_link)+"\""
     permalink=link[4:-4]
 
@@ -34,10 +35,13 @@ for full_link in permas_list:
 
     #delete comment from database
     if (int((day_ago - submission_date).days) > 2):
-        print "deleting: "+str(permalink)
+        #print "deleting: "+str(permalink)
         c.execute('''DELETE FROM permalinks WHERE link=(?)''',(permalink,))
-        print "--------------------------------------------------------------------------------------------------------------------------"
+        #print "--------------------------------------------------------------------------------------------------------------------------"
 
     conn.commit()
     i+=1
     #print submission
+
+permas_list=c.execute("SELECT link FROM permalinks ").fetchall()
+print "After: "+str(len(permas_list))
