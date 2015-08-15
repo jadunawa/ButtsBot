@@ -45,7 +45,8 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http:/
             'Biggio butt!](http://i.imgur.com/7DlspmL.jpg','Biggio butt!](http://i.imgur.com/GYwHHxV.jpg','Marwin butt!](http://i.imgur.com/mqYVpy9.jpg',
             'Julia Morales butt!](http://imgur.com/SRzPWIJ.jpg','GoGo butt!](http://i.imgur.com/Xirtvvv.jpg',
             'Correa butt!](http://i.imgur.com/Y0JPeJK.jpg','Altuve butt!](http://i.imgur.com/bU64HWo.jpg',
-            'Biggio bobble butt!](https://i.imgur.com/I3uavEH.jpg','Lance McButt!](http://i.imgur.com/tTUpRRm.jpg']
+            'Biggio bobble butt!](https://i.imgur.com/I3uavEH.jpg','Lance McButt!](http://i.imgur.com/tTUpRRm.jpg',
+            'Marisnick butt! (from /u/Barrel-rider)](https://i.imgur.com/BerYpNo.jpg']
 
 subreddit = r.get_subreddit('Astros')  # get /r/Astros
 

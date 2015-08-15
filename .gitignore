@@ -4,3 +4,4 @@ buttsbot_config.txt~
 .gitignore~
 buttsbot_config_example.txt~
 butts_log.log
+database_clean_log.log
