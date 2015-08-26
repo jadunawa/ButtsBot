@@ -49,6 +49,7 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http:/
             'Marisnick butt! (from /u/Barrel-rider)](https://i.imgur.com/BerYpNo.jpg']
 
 subreddit = r.get_subreddit('Astros')  # get /r/Astros
+#subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise
 
 i = 1
 # go through top 20 submissions of /r/Astros
