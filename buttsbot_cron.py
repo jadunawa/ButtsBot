@@ -31,25 +31,31 @@ un_string=un_line[4:-1]
 pw_line=config_file.readline()
 pw_string=pw_line[4:-1]
 
+#get unsubscribed users
+unsubbed_file=open(path_to_script+"/unsubscribed.txt",'r+')
+
 r = praw.Reddit(user_agent='I post butts!')
 r.login(un_string, pw_string, disable_warning=True)
 
 #TODO: Work on regex
 #fuck regex
-keywords = ['butt', 'booty', 'bootay', ' ass ',' ass.', 'ass?', 'ass,', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear.', ' rear ', 'rearend', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', 'bootay', ' ass ',' ass.', ' ass?', ' ass,', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear.', ' rear ', 'rearend', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
             'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg', 'Conger butt!](http://i.imgur.com/P5C2BGK.jpg', 'Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg',
             'McHugh butt!](http://i.imgur.com/hClbvuL.jpg','Ausmus and Berkman butt!](http://i.imgur.com/mL5TtMx.jpg',
             'Minor Leagues Lowrie butt!](http://i.imgur.com/VTxAaqn.jpg','Kazmir butt!](http://imgur.com/ShvX5Xq.jpg',
             'Biggio butt!](http://i.imgur.com/7DlspmL.jpg','Biggio butt!](http://i.imgur.com/GYwHHxV.jpg','Marwin butt!](http://i.imgur.com/mqYVpy9.jpg',
-            'Julia Morales butt!](http://imgur.com/SRzPWIJ.jpg','GoGo butt!](http://i.imgur.com/Xirtvvv.jpg',
+            'Julia MoralASS!](http://imgur.com/SRzPWIJ.jpg','GoGo butt!](http://i.imgur.com/Xirtvvv.jpg',
             'Correa butt!](http://i.imgur.com/Y0JPeJK.jpg','Altuve butt!](http://i.imgur.com/bU64HWo.jpg',
             'Biggio bobble butt!](https://i.imgur.com/I3uavEH.jpg','Lance McButt!](http://i.imgur.com/tTUpRRm.jpg',
-            'Marisnick butt! (from /u/Barrel-rider)](https://i.imgur.com/BerYpNo.jpg']
+            'Marisnick butt! (from /u/Barrel-rider)](https://i.imgur.com/BerYpNo.jpg',
+            'Altuve on-deck butt! (from /u/Not_a_Clue)](http://i.imgur.com/gE8M0EE.jpg',
+            'A.J. Hinch butt!(from /u/thenewtestament)](http://i.imgur.com/ghZV5Lp.jpg']
 
 subreddit = r.get_subreddit('Astros')  # get /r/Astros
-#subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise
+#subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
+#subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise... jk I got banned :(
 
 i = 1
 # go through top 20 submissions of /r/Astros
