@@ -39,7 +39,7 @@ r.login(un_string, pw_string, disable_warning=True)
 
 #TODO: Work on regex
 #fuck regex
-keywords = ['butt', 'booty', 'bootay', ' ass ',' ass.', ' ass?', ' ass,', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear.', ' rear ', 'rearend', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', 'bootay', ' ass ',' ass.', ' ass?', ' ass,', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear.', ' rear ', 'rearend', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk', 'backside']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
             'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg', 'Conger butt!](http://i.imgur.com/P5C2BGK.jpg', 'Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg',
@@ -51,15 +51,15 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http:/
             'Biggio bobble butt!](https://i.imgur.com/I3uavEH.jpg','Lance McButt!](http://i.imgur.com/tTUpRRm.jpg',
             'Marisnick butt! (from /u/Barrel-rider)](https://i.imgur.com/BerYpNo.jpg',
             'Altuve on-deck butt! (from /u/Not_a_Clue)](http://i.imgur.com/gE8M0EE.jpg',
-            'A.J. Hinch butt!(from /u/thenewtestament)](http://i.imgur.com/ghZV5Lp.jpg']
+            'A.J. Hinch butt! (from /u/thenewtestament)](http://i.imgur.com/ghZV5Lp.jpg']
 
-subreddit = r.get_subreddit('Astros')  # get /r/Astros
+subreddit = r.get_subreddit('Astros+AstrosCirclejerk')  # get /r/Astros
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
 #subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise... jk I got banned :(
 
 i = 1
-# go through top 20 submissions of /r/Astros
-for submission in subreddit.get_hot(limit=20):
+# go through top 30 submissions of /r/Astros
+for submission in subreddit.get_hot(limit=30):
     submission_date = datetime.fromtimestamp(submission.created_utc)  # get submission date
     day_ago = datetime.fromtimestamp(time.time() - (24 * 60 * 60))  # find date for 24 hours ago
     # ignore posts over 24 hours old
