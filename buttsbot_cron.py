@@ -51,7 +51,8 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http:/
             'Biggio bobble butt!](https://i.imgur.com/I3uavEH.jpg','Lance McButt!](http://i.imgur.com/tTUpRRm.jpg',
             'Marisnick butt! (from /u/Barrel-rider)](https://i.imgur.com/BerYpNo.jpg',
             'Altuve on-deck butt! (from /u/Not_a_Clue)](http://i.imgur.com/gE8M0EE.jpg',
-            'A.J. Hinch butt! (from /u/thenewtestament)](http://i.imgur.com/ghZV5Lp.jpg']
+            'A.J. Hinch butt! (from /u/thenewtestament)](http://i.imgur.com/ghZV5Lp.jpg',
+            'infamous Villar butt slide!](http://i.imgur.com/mjgWAmq.gifv','Nolan Ryan butt!](http://i.imgur.com/5MZt2w1.jpg']
 
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk')  # get /r/Astros
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
