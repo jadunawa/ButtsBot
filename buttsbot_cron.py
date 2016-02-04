@@ -91,6 +91,7 @@ for submission in subreddit.get_hot(limit=30):
         print "-----------------------------------------------------------------"
     i += 1
 
+'''
 link="https://www.reddit.com/r/baseball/comments/3zugjg/astros_spotlight_2015_season_recap/"
 submission=r.get_submission(link)
 submission.replace_more_comments(limit=None, threshold=0)  # get all comments instead of just first few
@@ -112,31 +113,6 @@ for comment in flaternized_comments:
             comment.reply(full_reply) #reply to the comment
             comment.upvote() #upvote the comment
             print("Replied to a comment: " +str(comment.permalink))
-        c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
-        conn.commit()
-print "-----------------------------------------------------------------"
-
-link="https://www.reddit.com/r/baseball/comments/3zugbo/astros_spotlight_season_highlights_in_gif_and/"
-submission=r.get_submission(link)
-submission.replace_more_comments(limit=None, threshold=0)  # get all comments instead of just first few
-all_comments = submission.comments  # make array of comments
-flaternized_comments = praw.helpers.flatten_tree(all_comments)  # ignore tree structure of comments
-# Iterate through comments in the submission
-for comment in flaternized_comments:
-    # Ignore comments that have already been checked to avoid multiple replies to the same comment
-    perma=str(comment.permalink)
-    if (str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
-        print "NONE OMG THIS WORKS"
-        l_comment = str(comment).lower()  # make the comment lowercase
-        talks_about_butts = any(string in l_comment for string in keywords)  #boolean for talking about butts
-        # If the comment talks about butts and isn't a comment by this bot, respond with the correct string
-        if talks_about_butts and str(comment.author)!="buttsbot":
-            print("Comment author: "+str(comment.author))
-            butt_number=random.randint(0,len(butt_links)-1)
-            full_reply="You have activated the Astros buttsbot! Here is a picture of [{}) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Suggestions for more butts? Please send me a message!".format(butt_links[butt_number])
-            comment.reply(full_reply) #reply to the comment
-            comment.upvote() #upvote the comment
-            print("Replied to a comment: " +str(comment.permalink))
-        c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
-        conn.commit()
+        c.execute('''#INSERT INTO permalinks(link) VALUES (?)''',(perma,))
+        #conn.commit()
 print "-----------------------------------------------------------------"
