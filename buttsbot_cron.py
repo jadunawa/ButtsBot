@@ -6,6 +6,7 @@ __author__ = 'Judson Dunaway-Barlow'
 import os
 import praw
 import random
+import re
 import sys
 import sqlite3
 import time
@@ -39,7 +40,7 @@ r.login(un_string, pw_string, disable_warning=True)
 
 #TODO: Work on regex
 #fuck regex
-keywords = ['butt', 'booty', 'bootay', ' ass ',' ass.', ' ass?', ' ass,', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear.', ' rear ', 'rearend', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk', 'backside']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', 'bootay', 'ass', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'rearend', 'rear end', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk', 'backside']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg', 'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
             'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg', 'Conger butt!](http://i.imgur.com/P5C2BGK.jpg', 'Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg',
@@ -78,7 +79,20 @@ for submission in subreddit.get_hot(limit=30):
             if (str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
                 print "NONE OMG THIS WORKS"
                 l_comment = str(comment).lower()  # make the comment lowercase
-                talks_about_butts = any(string in l_comment for string in keywords)  #boolean for talking about butts
+                #talks_about_butts = any(string in l_comment for string in keywords)
+                talks_about_butts=False # #boolean for talking about butts
+                #TODO: INSERT REGEX HERE
+                found_using_regex=False
+                for keyword in keywords:
+                    regex_string=r"\b"+keyword+r"e*s*\b"
+                    search_result=re.search(regex_string, str(comment), re.IGNORECASE)
+                    #print search_result
+                    BETA_STRING="This comment was made using BB beta! Please ignore this, this line is only used for testing."
+                    if(search_result):
+                        talks_about_butts=True
+                        print 'keyword '+keyword+" worked. Comment author was "+str(comment.author)
+                        print "permalink: "+perma
+                        #print "TRUE: "+ keyword+"\ncomment: "+perma+"\nauthor:"+str(comment.author)
                 # If the comment talks about butts and isn't a comment by this bot, respond with the correct string
                 if talks_about_butts and str(comment.author)!="buttsbot":
                     print("Comment author: "+str(comment.author))
