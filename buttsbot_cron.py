@@ -75,8 +75,10 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'El Oso Booty!](http://i.imgur.com/BXdprcQ.jpg',
             'Doug Fister butt!](http://i.imgur.com/u6I8Rn9.jpg',
             'Ken Giles butt!](http://i.imgur.com/IJu2wI3.jpg',
-            'Cy Young winning butt!](http://i.imgur.com/NTolVAP.jpg'
-            'Tony Sipp butt!](http://i.imgur.com/n5opLnu.jpg']
+            'Cy Young winning butt!](http://i.imgur.com/NTolVAP.jpg',
+            'Tony Sipp butt!](http://i.imgur.com/n5opLnu.jpg',
+            'AJ Reed butt! (photo credit: /u/2to2000)](https://i.imgur.com/QjRCWGB.jpg',
+            'Correa butt! (photo credit: /u/2to2000)](https://i.imgur.com/ll3q5yy.jpg']
 
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk+ButtsBot')  # get /r/Astros
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
