@@ -61,7 +61,7 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Biggio butt!](http://i.imgur.com/GYwHHxV.jpg',
             'Marwin butt!](http://i.imgur.com/mqYVpy9.jpg',
             'Julia MoralASS!](http://imgur.com/SRzPWIJ.jpg',
-            'GoGo butt!](http://i.imgur.com/Xirtvvv.jpg',
+            #'GoGo butt!](http://i.imgur.com/Xirtvvv.jpg',
             'Correa butt!](http://i.imgur.com/Y0JPeJK.jpg',
             'Altuve butt!](http://i.imgur.com/bU64HWo.jpg',
             'Biggio bobble butt!](https://i.imgur.com/I3uavEH.jpg',
@@ -78,14 +78,16 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Cy Young winning butt!](http://i.imgur.com/NTolVAP.jpg',
             'Tony Sipp butt!](http://i.imgur.com/n5opLnu.jpg',
             'AJ Reed butt! (photo credit: /u/2to2000)](https://i.imgur.com/QjRCWGB.jpg',
-            'Correa butt! (photo credit: /u/2to2000)](https://i.imgur.com/ll3q5yy.jpg']
+            'Correa butt! (photo credit: /u/2to2000)](https://i.imgur.com/ll3q5yy.jpg',
+            'Alex Bregman butt!](http://i.imgur.com/1NGFLRc.jpg']
 
+#subreddits to check
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk+ButtsBot')  # get /r/Astros
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
 #subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise... jk I got banned :(
 
 i = 1
-# go through top 30 submissions of /r/Astros
+# go through top 30 submissions of subreddits
 for submission in subreddit.get_hot(limit=30):
     submission_date = datetime.fromtimestamp(submission.created_utc)  # get submission date
     day_ago = datetime.fromtimestamp(time.time() - (24 * 60 * 60))  # find date for 24 hours ago
