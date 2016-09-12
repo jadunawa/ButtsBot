@@ -4,7 +4,11 @@ A silly bot that posts a picture of a (clothed) butt from the Astros team whenev
 To copy this bot, copy the config example file and enter the correct username and password. It must be called "buttsbot_config.txt".
 
 The files you will want to use are:
-  buttsbot_cron.py (main script)
-  buttsbot_config.txt (holds username and password for your bot)
-  links.db (holds the links from all comments checked in the past few days and their respective timestamps)
-  database_clean.py (removes old links from the database to make checking comment permalinks faster)
+    
+    buttsbot_cron.py (main script)
+    
+    buttsbot_config.txt (holds username and password for your bot)
+    
+    links.db (holds the links from all comments checked in the past few days and their respective timestamps)
+    
+    database_clean.py (removes old links from the database to make checking comment permalinks faster)
