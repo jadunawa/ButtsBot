@@ -15,6 +15,7 @@ from datetime import datetime, date, timedelta
 print str(datetime.now())
 
 path_to_script=os.path.dirname(__file__)
+path_to_script=os.path.dirname(os.path.abspath(__file__))
 #print path_to_script
 
 #connect to sqlite database
@@ -102,6 +103,7 @@ for submission in subreddit.get_hot(limit=30):
         for comment in flaternized_comments:
             # Ignore comments that have already been checked to avoid multiple replies to the same comment
             perma=str(comment.permalink)
+            #c.execute('''INSERT INTO permalinks(link, timestamp) VALUES '{}'''.format(perma+", "+str(datetime.fromtimestamp(submission.created_utc))))
             if (str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
                 print "NONE OMG THIS WORKS"
                 l_comment = str(comment).lower()  # make the comment lowercase
@@ -125,10 +127,13 @@ for submission in subreddit.get_hot(limit=30):
                     comment.reply(full_reply) #reply to the comment
                     comment.upvote() #upvote the comment
                     print("Replied to a comment: " +str(comment.permalink))
-                c.execute('''INSERT INTO permalinks(link) VALUES (?)''',(perma,))
+                c.execute('''INSERT INTO permalinks(link, timestamp) VALUES (?,?)''',(perma, datetime.fromtimestamp((submission.created_utc))))
+                #c.execute('''INSERT INTO permalinks(timestamp) VALUES (?)''',(datetime.fromtimestamp(submission.created_utc),))
                 conn.commit()
         print "-----------------------------------------------------------------"
     i += 1
+
+#I think this is a template for a single unique post in a different subreddit
 
 '''
 link="https://www.reddit.com/r/baseball/comments/3zugjg/astros_spotlight_2015_season_recap/"
