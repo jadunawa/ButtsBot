@@ -1,4 +1,4 @@
-#THIS FILE IS A LITTLE OUTDATED. buttsbot_cron.py IS MOST UPDATED VERSION
+#THIS FILE IS HEAVILY OUTDATED. buttsbot_cron.py IS MOST UPDATED VERSION
 
 __author__ = 'Judson Dunaway-Barlow'
 
