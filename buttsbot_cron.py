@@ -80,7 +80,8 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Tony Sipp butt!](http://i.imgur.com/n5opLnu.jpg',
             'AJ Reed butt! (photo credit: /u/2to2000)](https://i.imgur.com/QjRCWGB.jpg',
             'Correa butt! (photo credit: /u/2to2000)](https://i.imgur.com/ll3q5yy.jpg',
-            'Alex Bregman butt!](http://i.imgur.com/1NGFLRc.jpg']
+            'Alex Bregman butt!](http://i.imgur.com/1NGFLRc.jpg',
+            'Yuli Booty!](http://i.imgur.com/swrQ3mu.jpg']
 
 #subreddits to check
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk+ButtsBot')  # get /r/Astros
