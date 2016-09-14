@@ -25,6 +25,9 @@ i=0
 #count for deleted
 deleted=0
 
+#count for undeleted in a row
+consecutive_saved=0
+
 #permas_list.reverse()
 
 for full_link in permas_list:
@@ -63,8 +66,16 @@ for full_link in permas_list:
         deleted+=1
         print "have deleted: "+str(deleted)
         #print "--------------------------------------------------------------------------------------------------------------------------"
+    else: consecutive_saved+=1
+
+    print "consecutive saved: "+str(consecutive_saved)
 
     conn.commit()
+
+    if consecutive_saved==5:
+        break
+
+
     i+=1
     #print submission
 
