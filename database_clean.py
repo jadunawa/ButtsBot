@@ -7,6 +7,7 @@ from dateutil import parser
 r = praw.Reddit(user_agent='I clean buttsbot\'s database!')
 
 path_to_script=os.path.dirname(__file__)
+path_to_script=os.path.dirname(os.path.abspath(__file__))
 #print path_to_script
 
 #connect to sqlite database
@@ -14,13 +15,14 @@ conn=sqlite3.connect(path_to_script+'/links.db')
 c=conn.cursor()
 
 #submission_date = datetime.fromtimestamp(submission.created_utc)  # get submission date
-day_ago = datetime.fromtimestamp(time.time() - (48 * 60 * 60))  # find date for 24 hours ago
+day_ago = datetime.fromtimestamp(time.time() - (24 * 60 * 60))  # find date for 24 hours ago
+print "time is: "+str(datetime.fromtimestamp(time.time()))
 
 permas_list=c.execute("SELECT link FROM permalinks ").fetchall()
 
 before_length=len(permas_list)
-print "Before: "+str(len(permas_list))
-i=0
+print "Before: "+str(before_length)
+i=1
 
 #count for deleted
 deleted=0
@@ -41,7 +43,7 @@ for full_link in permas_list:
     #print submission_date
     #submission_date=datetime.now()
 
-    #TODO: GET TIMESTAMP FROM DATABASE INSTEAD OF PRAW
+    #get timestamp from database instead of using praw to get it online
     submission_date_NETWORKLESS=str(c.execute("SELECT timestamp FROM permalinks WHERE link='{}'".format(permalink,)).fetchone())
     sub_date_string=str(submission_date_NETWORKLESS)
     if (str(submission_date_NETWORKLESS)!="(None,)"):
@@ -59,25 +61,33 @@ for full_link in permas_list:
 
     #delete comment from database
     print "checking post "+str(i)+": "+permalink
+    print "Day difference: "+str(int((day_ago - submission_date).days))
     if (int((day_ago - submission_date).days) > 2):
         #print "deleting: "+str(permalink)
         c.execute('''DELETE FROM permalinks WHERE link=(?)''',(permalink,))
         print "Deleted: "+permalink
         deleted+=1
         print "have deleted: "+str(deleted)
-        #print "--------------------------------------------------------------------------------------------------------------------------"
+        consecutive_saved=0
+
     else: consecutive_saved+=1
 
     print "consecutive saved: "+str(consecutive_saved)
 
     conn.commit()
 
-    if consecutive_saved==5:
-        break
 
 
     i+=1
     #print submission
+    print "--------------------------------------------------------------------------------------------------------------------------"
+
+    if consecutive_saved==5:
+        break
+
 
 permas_list=c.execute("SELECT link FROM permalinks ").fetchall()
+print "Before: "+str(before_length)
 print "After: "+str(len(permas_list))
+print "Checked: "+str(i-1)
+print "Deleted: "+str(deleted)
