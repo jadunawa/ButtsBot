@@ -50,7 +50,7 @@ r.login(un_string, pw_string, disable_warning=True)
 keywords = ['butt', 'booty', 'bootay', 'ass', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'rearend', 'rear end', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk', 'backside']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
-            'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
+            #'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
             #'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg',
             #'Conger butt!](http://i.imgur.com/P5C2BGK.jpg',
             'Carlos Lee butt!](http://i.imgur.com/G5ZzVmp.jpg',
@@ -74,14 +74,18 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Nolan Ryan butt!](http://i.imgur.com/5MZt2w1.jpg',
             'Gattis butt!](http://i.imgur.com/coT3SkI.jpg',
             'El Oso Booty!](http://i.imgur.com/BXdprcQ.jpg',
-            'Doug Fister butt!](http://i.imgur.com/u6I8Rn9.jpg',
+            #'Doug Fister butt!](http://i.imgur.com/u6I8Rn9.jpg',
             'Ken Giles butt!](http://i.imgur.com/IJu2wI3.jpg',
             'Cy Young winning butt!](http://i.imgur.com/NTolVAP.jpg',
             'Tony Sipp butt!](http://i.imgur.com/n5opLnu.jpg',
             'AJ Reed butt! (photo credit: /u/2to2000)](https://i.imgur.com/QjRCWGB.jpg',
             'Correa butt! (photo credit: /u/2to2000)](https://i.imgur.com/ll3q5yy.jpg',
             'Alex Bregman butt!](http://i.imgur.com/1NGFLRc.jpg',
-            'Yuli Booty!](http://i.imgur.com/swrQ3mu.jpg']
+            'Yuli Booty!](http://i.imgur.com/swrQ3mu.jpg',
+            'Reddick Heinie!](http://i.imgur.com/2ynOsd5.jpg',
+            'McCann tush!](http://i.imgur.com/v2cfIME.jpg',
+            'Morton butt!](http://i.imgur.com/VgPHZev.jpg',
+            'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg']
 
 #subreddits to check
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk+ButtsBot')  # get /r/Astros
