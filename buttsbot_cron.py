@@ -14,7 +14,7 @@ from datetime import datetime, date, timedelta
 
 print str(datetime.now())
 
-path_to_script=os.path.dirname(__file__)
+#path_to_script=os.path.dirname(__file__)
 path_to_script=os.path.dirname(os.path.abspath(__file__))
 #print path_to_script
 
