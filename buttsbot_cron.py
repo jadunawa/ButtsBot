@@ -85,7 +85,8 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Reddick Heinie!](http://i.imgur.com/2ynOsd5.jpg',
             'McCann tush!](http://i.imgur.com/v2cfIME.jpg',
             'Morton butt!](http://i.imgur.com/VgPHZev.jpg',
-            'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg']
+            'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg',
+            'Finely aged Beltran posterior!](http://i.imgur.com/bqUs2c1.jpg']
 
 #subreddits to check
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk+ButtsBot')  # get /r/Astros
@@ -98,6 +99,7 @@ for submission in subreddit.get_hot(limit=30):
     submission_date = datetime.fromtimestamp(submission.created_utc)  # get submission date
     day_ago = datetime.fromtimestamp(time.time() - (24 * 60 * 60))  # find date for 24 hours ago
     # ignore posts over 24 hours old
+    #print("Days ago: "+str((int((day_ago - submission_date).days) + 1)))
     if (int((day_ago - submission_date).days) + 1< 2):
         print('Testing submission ', i)
         print(day_ago - submission_date).days
