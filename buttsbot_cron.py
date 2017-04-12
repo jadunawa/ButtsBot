@@ -86,7 +86,8 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'McCann tush!](http://i.imgur.com/v2cfIME.jpg',
             'Morton butt!](http://i.imgur.com/VgPHZev.jpg',
             'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg',
-            'Finely aged Beltran posterior!](http://i.imgur.com/bqUs2c1.jpg']
+            'Finely aged Beltran posterior!](http://i.imgur.com/bqUs2c1.jpg',
+            'rally starting grASShopper!](http://i.imgur.com/rIGx35e.jpg']
 
 #subreddits to check
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk+ButtsBot')  # get /r/Astros
