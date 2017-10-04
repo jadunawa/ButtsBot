@@ -87,7 +87,7 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Morton butt!](http://i.imgur.com/VgPHZev.jpg',
             #'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg',
             'Finely aged Beltran posterior!](http://i.imgur.com/bqUs2c1.jpg',
-            'rally starting grASShopper!](http://i.imgur.com/rIGx35e.jpg'], 'Verlander Butt!](https://i.imgur.com/72g59Sm.jpg']
+            'rally starting grASShopper!](http://i.imgur.com/rIGx35e.jpg'], 'Verlander Butt!](https://i.imgur.com/72g59Sm.jpg', 'Verlander Squats](http://imgur.com/a/nNAEM', 'Verlander the Savior Rump](http://imgur.com/cJM5ZP3.jpg']
 
 
 #subreddits to check
