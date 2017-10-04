@@ -78,16 +78,17 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Ken Giles butt!](http://i.imgur.com/IJu2wI3.jpg',
             'Cy Young winning butt!](http://i.imgur.com/NTolVAP.jpg',
             'Tony Sipp butt!](http://i.imgur.com/n5opLnu.jpg',
-            'AJ Reed butt! (photo credit: /u/2to2000)](https://i.imgur.com/QjRCWGB.jpg',
+            #'AJ Reed butt! (photo credit: /u/2to2000)](https://i.imgur.com/QjRCWGB.jpg',
             'Correa butt! (photo credit: /u/2to2000)](https://i.imgur.com/ll3q5yy.jpg',
             'Alex Bregman butt!](http://i.imgur.com/1NGFLRc.jpg',
             'Yuli Booty!](http://i.imgur.com/swrQ3mu.jpg',
             'Reddick Heinie!](http://i.imgur.com/2ynOsd5.jpg',
             'McCann tush!](http://i.imgur.com/v2cfIME.jpg',
             'Morton butt!](http://i.imgur.com/VgPHZev.jpg',
-            'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg',
+            #'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg',
             'Finely aged Beltran posterior!](http://i.imgur.com/bqUs2c1.jpg',
-            'rally starting grASShopper!](http://i.imgur.com/rIGx35e.jpg']
+            'rally starting grASShopper!](http://i.imgur.com/rIGx35e.jpg'], 'Verlander Butt!](https://i.imgur.com/72g59Sm.jpg']
+
 
 #subreddits to check
 subreddit = r.get_subreddit('Astros+AstrosCirclejerk+ButtsBot')  # get /r/Astros
