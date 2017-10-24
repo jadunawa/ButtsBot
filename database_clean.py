@@ -1,10 +1,8 @@
 __author__ = 'judson'
 
-import os, praw, sqlite3, time
+import os, sqlite3, time
 from datetime import datetime
 from dateutil import parser
-
-r = praw.Reddit(user_agent='I clean buttsbot\'s database!')
 
 path_to_script=os.path.dirname(__file__)
 path_to_script=os.path.dirname(os.path.abspath(__file__))
