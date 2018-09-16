@@ -3,7 +3,7 @@ __author__ = 'Judson Dunaway-Barlow'
 #Made with PRAW: https://praw.readthedocs.org/en/latest/
 #Buttsbot original code at: https://github.com/jadunawa/ButtsBot
 
-import os
+import os 
 import praw
 import random
 import re
@@ -12,7 +12,7 @@ import sqlite3
 import time
 from datetime import datetime, date, timedelta
 
-print str(datetime.now())
+print(str(datetime.now()))
 
 #path_to_script=os.path.dirname(__file__)
 path_to_script=os.path.dirname(os.path.abspath(__file__))
@@ -103,11 +103,13 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             #'Colin Moran caboose!](http://i.imgur.com/1wb6RK8.jpg',
             'Big Boy Feliz butt!](http://i.imgur.com/LLGekfX.jpg',
             'Troll Hair butt!](http://i.imgur.com/OPrKkW1.jpg',
-            #'Liriano butt!](http://i.imgur.com/qmtHJXA.jpg']
+            #'Liriano butt!](http://i.imgur.com/qmtHJXA.jpg'
+            ]
 
 
 #subreddits to check
-subreddit = r.subreddit('Astros+ButtsBot')  # get /r/Astros
+#subreddit = r.subreddit('Astros+ButtsBot')  # get /r/Astros
+subreddit = r.subreddit('ButtsBot')
 #lessons learned below:
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
 #subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise... jk I got banned :(
@@ -124,9 +126,9 @@ for submission in subreddit.hot(limit=20):
         print('Testing submission ', i)
         print(submission.title)
         #print(day_ago - submission_date).days
-        print "Getting comments"
+        print("Getting comments")
         submission.comments.replace_more(limit=0) # get all comments instead of just first few
-        print "Got all comments"
+        print("Got all comments")
         all_comments = submission.comments.list()  # make array of comments
         flaternized_comments = all_comments #praw.helpers.flatten_tree(all_comments)  # ignore tree structure of comments
         # Iterate through comments in the submission
@@ -136,7 +138,7 @@ for submission in subreddit.hot(limit=20):
             perma=str(comment.permalink)
             #c.execute('''INSERT INTO permalinks(link, timestamp) VALUES '{}'''.format(perma+", "+str(datetime.fromtimestamp(submission.created_utc))))
             if (str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
-                print "Found new comment: "+str(comment)
+                print("Found new comment: "+str(comment))
                 try:
                     print('---\nComment: ' +str(comment.body)+'\n---')
                     l_comment = str(comment.body).lower()  # make the comment lowercase
@@ -151,8 +153,8 @@ for submission in subreddit.hot(limit=20):
                     #print search_result
                     if(search_result):
                         talks_about_butts=True
-                        print 'keyword '+keyword+" worked. Comment author was "+str(comment.author)
-                        print "permalink: "+perma
+                        print('keyword '+keyword+" worked. Comment author was "+str(comment.author))
+                        print ("permalink: "+perma)
                         #print "TRUE: "+ keyword+"\ncomment: "+perma+"\nauthor:"+str(comment.author)
                 # If the comment talks about butts and isn't a comment by this bot, respond with the correct string
                 #TODO: check for unsubscribed users
@@ -167,6 +169,6 @@ for submission in subreddit.hot(limit=20):
                 c.execute('''INSERT INTO permalinks(link, timestamp) VALUES (?,?)''',(perma, datetime.fromtimestamp((submission.created_utc))))
                 #c.execute('''INSERT INTO permalinks(timestamp) VALUES (?)''',(datetime.fromtimestamp(submission.created_utc),))
                 conn.commit()
-        print "-----------------------------------------------------------------"
+        print("-----------------------------------------------------------------")
     i += 1
-print 'Replied to '+str(new_replies)+' comments'
+print('Replied to '+str(new_replies)+' comments')
