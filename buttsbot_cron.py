@@ -75,7 +75,7 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Gattis butt!](http://i.imgur.com/coT3SkI.jpg',
             'El Oso Booty!](http://i.imgur.com/BXdprcQ.jpg',
             #'Doug Fister butt!](http://i.imgur.com/u6I8Rn9.jpg',
-            'Ken Giles butt!](http://i.imgur.com/IJu2wI3.jpg',
+            #'Ken Giles butt!](http://i.imgur.com/IJu2wI3.jpg',
             'Cy Young winning butt!](http://i.imgur.com/NTolVAP.jpg',
             'Tony Sipp butt!](http://i.imgur.com/n5opLnu.jpg',
             #'AJ Reed butt! (photo credit: /u/2to2000)](https://i.imgur.com/QjRCWGB.jpg',
@@ -101,15 +101,15 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Springer rainbow ass!](http://i.imgur.com/2ftS6GB.jpg',
             #'Gregerson butt!](http://i.imgur.com/fBcLyLP.jpg',
             #'Colin Moran caboose!](http://i.imgur.com/1wb6RK8.jpg',
-            'Big Boy Feliz butt!](http://i.imgur.com/LLGekfX.jpg',
+            #'Big Boy Feliz butt!](http://i.imgur.com/LLGekfX.jpg',
             'Troll Hair butt!](http://i.imgur.com/OPrKkW1.jpg',
             #'Liriano butt!](http://i.imgur.com/qmtHJXA.jpg'
             ]
 
 
 #subreddits to check
-#subreddit = r.subreddit('Astros+ButtsBot')  # get /r/Astros
-subreddit = r.subreddit('ButtsBot')
+subreddit = r.subreddit('Astros+ButtsBot')  # get /r/Astros
+#subreddit = r.subreddit('ButtsBot')
 #lessons learned below:
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
 #subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise... jk I got banned :(
