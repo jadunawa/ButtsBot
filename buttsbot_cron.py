@@ -105,7 +105,7 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Troll Hair butt!](http://i.imgur.com/OPrKkW1.jpg',
             #'Liriano butt!](http://i.imgur.com/qmtHJXA.jpg'
             'Shark Butt ooh ha ha!](http://i.imgur.com/TqW2lbj.jpg',
-            'Cole train caboose!](http://i/imgur.com/2Pwaf2b.jpg',
+            'Cole train caboose!](http://.imgur.com/2Pwaf2b.jpg',
             'Machete ass!](http://i.imgur.com/pQHZmcU.jpg'
             ]
 
