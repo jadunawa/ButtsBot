@@ -107,7 +107,8 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Shark Butt ooh ha ha!](http://i.imgur.com/TqW2lbj.jpg',
             'Cole train caboose!](http://i.imgur.com/2Pwaf2b.jpg',
             'Machete ass!](http://i.imgur.com/pQHZmcU.jpg',
-            'Ultra special Bregman twerking feat JV!](https://i.imgur.com/NyQ0MgB.gifv'
+            'Ultra special Bregman twerking feat JV!](https://i.imgur.com/NyQ0MgB.gifv',
+            'Gerrit Cole polishing a special MVP butt!](https://i.imgur.com/cm41FTF.jpg'
             ]
 
 
