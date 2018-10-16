@@ -47,7 +47,7 @@ r = praw.Reddit(user_agent='I post butts!', client_id='_hEPIB-VEFigbg', client_s
 #TODO: Work on regex
 #fuck regex
 #jk regex is pretty easy lol
-keywords = ['butt', 'booty', 'bootay', 'ass', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'rearend', 'rear end', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk', 'backside', 'anus', 'tuchus', 'tushy', 'rectum']  # make list of words to trigger the comment reply
+keywords = ['butt', 'booty', 'bootay', 'ass', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'rearend', 'rear end', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk', 'backside', 'anus', 'tuchus', 'tushy', 'rectum', 'sphincter']  # make list of words to trigger the comment reply
 # TODO: Get a list of a bunch of imgur links to Astros Butts
 butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             #'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
