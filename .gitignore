@@ -1,9 +1,7 @@
 buttsbot_config.txt
 buttsbot_config.txt~
-.ideag
+.idea
 .gitignore~
 buttsbot_config_example.txt~
 butts_log.log
 database_clean_log.log
-links.db
-.idea/
