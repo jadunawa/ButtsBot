@@ -110,7 +110,7 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Ultra special Bregman twerking feat JV!](https://i.imgur.com/NyQ0MgB.gifv',
             'Gerrit Cole polishing a special MVP butt!](https://i.imgur.com/cm41FTF.jpg',
             '#2\'s #2!](https://i.imgur.com/wIXH0ks.jpg',
-            'Orbit streaking!](http://i.imgur.com/wyyqYaS.jpg'
+            'Orbit streaking! (photo credit: /u/AuntieMeat)](http://i.imgur.com/wyyqYaS.jpg'
             ]
 
 
