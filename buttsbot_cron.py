@@ -142,7 +142,10 @@ for submission in subreddit.hot(limit=20):
         for comment in flaternized_comments:
             #print("testing comment")
             # Ignore comments that have already been checked to avoid multiple replies to the same comment
-            perma=str(comment.permalink)
+            try:
+                perma=str(comment.permalink)
+            except:
+                print('Couldn\'t get permalink')
             #c.execute('''INSERT INTO permalinks(link, timestamp) VALUES '{}'''.format(perma+", "+str(datetime.fromtimestamp(submission.created_utc))))
             if (str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
                 print("Found new comment: "+str(comment))
