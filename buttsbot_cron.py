@@ -3,7 +3,7 @@ __author__ = 'Judson Dunaway-Barlow'
 #Made with PRAW: https://praw.readthedocs.org/en/latest/
 #Buttsbot original code at: https://github.com/jadunawa/ButtsBot
 
-import os 
+import os
 import praw
 import random
 import re
@@ -87,8 +87,8 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             #'Morton butt!](http://i.imgur.com/VgPHZev.jpg',
             #'Aoki flying booty!](http://i.imgur.com/sFBiP9y.jpg',
             'Finely aged Beltran posterior!](http://i.imgur.com/bqUs2c1.jpg',
-            'rally starting grASShopper!](http://i.imgur.com/rIGx35e.jpg', 
-            'Verlander butt!](https://i.imgur.com/72g59Sm.jpg', 
+            'rally starting grASShopper!](http://i.imgur.com/rIGx35e.jpg',
+            'Verlander butt!](https://i.imgur.com/72g59Sm.jpg',
             'Verlander squats!](http://i.imgur.com/NKdvCS0.jpg',
             'Verlander the Savior bump!](http://i.imgur.com/cJM5ZP3.jpg',
             'pasty Reddick \'Murican speedo butt!](https://media.giphy.com/media/3ohjUQcb6m54K1zpVm/giphy.gif',
@@ -146,8 +146,9 @@ for submission in subreddit.hot(limit=20):
                 perma=str(comment.permalink)
             except:
                 print('Couldn\'t get permalink')
+                perma='invalid'
             #c.execute('''INSERT INTO permalinks(link, timestamp) VALUES '{}'''.format(perma+", "+str(datetime.fromtimestamp(submission.created_utc))))
-            if (str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
+            if (perma!='invalid' and str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
                 print("Found new comment: "+str(comment))
                 try:
                     print('---\nComment: ' +str(comment.body)+'\n---')
