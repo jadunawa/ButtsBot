@@ -83,7 +83,7 @@ for full_link in permas_list:
     if (days_since_post > 2):
         #delete comment from database
         #print "deleting: "+str(permalink)
-        #c.execute('''DELETE FROM permalinks WHERE link=(?)''',(permalink,))
+        c.execute('''DELETE FROM permalinks WHERE link=(?)''',(permalink,))
         print("Deleted: "+permalink)
         deleted+=1
         print("have deleted: "+str(deleted))
