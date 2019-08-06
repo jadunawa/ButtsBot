@@ -118,6 +118,7 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
 #subreddits to check
 subreddit = r.subreddit('Astros+ButtsBot')  # get /r/Astros
 #subreddit = r.subreddit('ButtsBot')
+
 #lessons learned below:
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
 #subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise... jk I got banned :(
