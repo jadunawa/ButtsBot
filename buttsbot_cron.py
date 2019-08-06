@@ -111,7 +111,9 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Gerrit Cole polishing a special MVP butt!](https://i.imgur.com/cm41FTF.jpg',
             '#2\'s #2!](https://i.imgur.com/wIXH0ks.jpg',
             'Orbit streaking! (photo credit: /u/AuntieMeat)](http://i.imgur.com/wyyqYaS.jpg',
-            'Myles of butt! (photo credit: /u/Lukealloneword)](https://i.imgur.com/0Z4HlYw.jpg'
+            'Myles of butt! (photo credit: /u/Lukealloneword)](https://i.imgur.com/0Z4HlYw.jpg',
+            'Aledmys Diaz butt! (photo credit: /u/johnnyracer24)](https://i.imgur.com/0bFDpYL.jpg'
+            'Showrrea behind! (photo credit: /u/johnnyracer24)](https://i.imgur.com/onHrWZz.jpg'
             ]
 
 
