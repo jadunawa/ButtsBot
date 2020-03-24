@@ -1,4 +1,5 @@
 provider "aws" {
-  profile = TF_VAR_aws_profile
+  profile = var.aws_profile
   region  = "us-east-1"
 }
+
