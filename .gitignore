@@ -8,3 +8,4 @@ database_clean_log.log
 buttsbot.pem
 links.db
 .DS_Store
+.env*
