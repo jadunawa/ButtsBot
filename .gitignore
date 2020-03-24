@@ -9,3 +9,4 @@ buttsbot.pem
 links.db
 .DS_Store
 .env*
+.terraform/
