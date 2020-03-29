@@ -224,14 +224,20 @@ for submission in subreddit.hot(limit=20):
                 # If the comment talks about butts and isn't a comment by this bot, respond with the correct string
                 #TODO: check for unsubscribed users
                 if (talks_about_butts and str(comment.author) != "buttsbot"):
+
                     print("Comment author: "+str(comment.author))
-                    butt_number = random.randint(0,len(butt_links)-1)
+
+                    # create response comment
+                    butt_number = random.randint(0,len(butt_links)-1) # get random butt
                     full_reply = "You have activated the Buttsbot! Here is a picture of [{}) Thanks for enjoying Braves buttocks! Go Braves!\n\nAny problems with this bot? Suggestions for more butts? Please send me a message or visit /r/ButtsBot!".format(butt_links[butt_number])
+
+                    # reply and upvote the comment
                     try:
                         comment.reply(full_reply) #reply to the comment
                     except:
                         print("Couldn't reply to comment (comments locked?)")
                     comment.upvote() #upvote the comment
+
                     print("Replied to a comment: " +str(comment.permalink))
                     new_replies += 1
                     print()
