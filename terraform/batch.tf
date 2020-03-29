@@ -35,3 +35,20 @@ resource "aws_batch_job_definition" "tf_batch_buttsbot_job_definition" {
   }
   CONTAINER_PROPERTIES
 }
+
+resource "aws_cloudwatch_event_rule" "tf_cloudwatch_buttsbot_event_rule" {
+  name                = "tf_cloudwatch_buttsbot_event_rule"
+  description         = "Run buttsbot container every 3 minutes"
+  schedule_expression = "rate(3 minutes)"
+}
+
+resource "aws_cloudwatch_event_target" "tf_cloudwatch_trainingdata_event_target" {
+  rule     = aws_cloudwatch_event_rule.tf_cloudwatch_buttsbot_event_rule.name
+  arn      = aws_batch_job_queue.tf_batch_buttsbot_job_queue.arn
+  role_arn = aws_iam_role.tf_cloudwatch_buttsbot_event_target_role.arn
+
+  batch_target {
+    job_definition = aws_batch_job_definition.tf_batch_buttsbot_job_definition.arn
+    job_name       = "tf-cloudwatch-buttsbot-event-target"
+  }
+}
