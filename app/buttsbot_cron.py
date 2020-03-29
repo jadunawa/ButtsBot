@@ -9,47 +9,40 @@ import random
 import re
 import sys
 import sqlite3
+import pymysql.cursors
 import time
 from datetime import datetime, date, timedelta
 
-print(str(datetime.now()))
+# get current time
+now = datetime.now()
+print('Run time: '+str(now))
 
-#path_to_script=os.path.dirname(__file__)
 path_to_script=os.path.dirname(os.path.abspath(__file__))
-#print path_to_script
 
-#connect to sqlite database
-conn=sqlite3.connect(path_to_script+'/links.db')
-c=conn.cursor()
 
-#c.execute('''CREATE TABLE permalinks
-               # (link text)''')
-conn.commit()
+# connect to RDS and use the correct database ('permalinks')
+db = pymysql.connect(host = 'tf-buttsbot-checked-links.cj2uoorl5ifw.us-east-1.rds.amazonaws.com', user = 'buttsbot', passwd = '8wbei3EsF^v5', port = 3306)
+cur = db.cursor()
+cur.execute('use permalinks')
+db.commit()
 
-#get password
-config_file=open(path_to_script+"/buttsbot_config.txt",'r')
-un_line=config_file.readline()
-un_string=un_line[4:-1]
-pw_line=config_file.readline()
-pw_string=pw_line[4:-1]
 
-#get unsubscribed users
-unsubbed_list=[]
-unsubbed_file=open(path_to_script+"/unsubscribed.txt",'r+')
-for line in unsubbed_file:
-    if line[-1:]=="\n":
-        line=line[:-1]
-    unsubbed_list.append(line)
+# get password
+# TODO: use environment variables to do this securely and not through a txt file
+config_file = open(path_to_script+"/buttsbot_config.txt",'r')
+un_line = config_file.readline()
+un_string = un_line[4:-1]
+pw_line = config_file.readline()
+pw_string = pw_line[4:-1]
 
+# login
 r = praw.Reddit(user_agent='I post butts!', client_id='_hEPIB-VEFigbg', client_secret='ttQBM_MIb56yuwH_f9Ukb4VbJ5c', username='ButtsBot', password=pw_string)
-#r.login(un_string, pw_string, disable_warning=True)
 
-#TODO: Work on regex
-#fuck regex
-#jk regex is pretty easy lol
+# set keywords
 keywords = ['butt', 'booty', 'bootay', 'ass', 'asses', 'keyster', 'heinie', 'hiney', 'derriere', 'posterior', 'arse', 'bottom', 'tush', 'rear', 'rearend', 'rear end', 'bum', 'caboose', 'rump', 'fanny', 'glutes', 'badonkadonk', 'backside', 'anus', 'tuchus', 'tushy', 'rectum', 'sphincter']  # make list of words to trigger the comment reply
-# TODO: Get a list of a bunch of imgur links to Astros Butts
-butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
+
+# Astros butts list
+butt_links_astros = ['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             #'Castro butt!](http://www.rantsports.com/mlb/files/2014/02/Jason-Castro-Houston-Astros.jpg',
             #'Lowrie butt!](http://i.imgur.com/TwTi4DT.jpg',
             #'Conger butt!](http://i.imgur.com/P5C2BGK.jpg',
@@ -115,77 +108,121 @@ butt_links=['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Showrrea behind! (photo credit: /u/johnnyracer24)](https://i.imgur.com/onHrWZz.jpg'
             ]
 
+# Braes butts list
+butt_links = ['TEST BUTT TEST BUTT',
+             'TEST BUTT 2 TEST BUTT 2']
 
-#subreddits to check
-subreddit = r.subreddit('Astros+ButtsBot')  # get /r/Astros
-#subreddit = r.subreddit('ButtsBot')
 
-#lessons learned below:
+# subreddits to check
+#subreddit = r.subreddit('Astros+ButtsBot')  # get /r/Astros
+subreddit = r.subreddit('ButtsBot')
+
+#lessons learned:
 #subreddit = r.get_subreddit('Astros+Mariners') they didn't like me here either :(
 #subreddit = r.get_subreddit('Astros+TexasRangers') #temporary surprise... jk I got banned :(
 
-i = 1
-new_replies=0
+
+submission_number = 1
+new_replies = 0
+days_to_check = 1
+
 # go through top 30 submissions of subreddits
+
+# find timestamp for 24 hours ago to ignore posts from before then
+day_ago = datetime.fromtimestamp(time.time() - (24 * 60 * 60))
+print('24 hours ago: '+str(day_ago))
+
 for submission in subreddit.hot(limit=20):
-    submission_date = datetime.fromtimestamp(submission.created_utc)  # get submission date
-    day_ago = datetime.fromtimestamp(time.time() - (24 * 60 * 60))  # find date for 24 hours ago
-    # ignore posts over 24 hours old
-    #print("Days ago: "+str((int((day_ago - submission_date).days) + 1)))
-    if (int((day_ago - submission_date).days) + 1< 3):#TODO: CHANGE BACK TO 2
-        print('Testing submission ', i)
-        print(submission.title)
-        #print(day_ago - submission_date).days
+
+    # get submission date
+    submission_date = datetime.fromtimestamp(submission.created_utc)
+
+    # check if the submission is within the last <days_to_check> days
+    if ((now - submission_date).days < days_to_check):
+
+        print()
+
+        print('Analyzing submission ', submission_number)
+        print('Title: '+submission.title)
+
+        # get comments to process
         print("Getting comments")
         submission.comments.replace_more(limit=0) # get all comments instead of just first few
         print("Got all comments")
+        print()
+
+        # move all comments to flat list
         all_comments = submission.comments.list()  # make array of comments
         flaternized_comments = all_comments #praw.helpers.flatten_tree(all_comments)  # ignore tree structure of comments
+
         # Iterate through comments in the submission
         for comment in flaternized_comments:
-            #print("testing comment")
-            # Ignore comments that have already been checked to avoid multiple replies to the same comment
+
+            # search to see if comment has already been analyzed
+
+            # get permalink and handle invalid results
             try:
                 perma=str(comment.permalink)
             except:
                 print('Couldn\'t get permalink')
-                perma='invalid'
-            #c.execute('''INSERT INTO permalinks(link, timestamp) VALUES '{}'''.format(perma+", "+str(datetime.fromtimestamp(submission.created_utc))))
-            if (perma!='invalid' and str(c.execute("SELECT link FROM permalinks WHERE link='{}'".format(perma)).fetchone())=="None"):
-                print("Found new comment: "+str(comment))
+                perma='INVALID'
+
+
+            # build search command
+            search_command = 'SELECT link FROM permalinks WHERE link="%s";'%(perma)
+            # get result
+            result = cur.execute(search_command)
+
+            # permalink not invalid and permalink not already in database (which means this comment hasn't yet been analyzed)
+            if ((perma!='INVALID') and (str(cur.fetchone())=="None")):
+
+                # add permalink to the database
+                add_command = 'INSERT INTO permalinks (link, datetime) VALUES ("%s","%s");'%(perma, submission_date)
+                add = cur.execute(add_command)
+                db.commit()
+
+
+                print("Found new comment:")
                 try:
                     print('---\nComment: ' +str(comment.body)+'\n---')
                     l_comment = str(comment.body).lower()  # make the comment lowercase
                 except:
                     print('Couldn\'t print comment')
-                    l_comment='' #make empty to ignore
-                #talks_about_butts = any(string in l_comment for string in keywords)
-                talks_about_butts=False # #boolean for talking about butts
+                    l_comment = '' #make empty to ignore
+
+
+                talks_about_butts=False # boolean for talking about butts
+                # go through each of the keywords and see if it's in the comment
                 for keyword in keywords:
-                    regex_string=r"\b"+keyword+r"i*e*s*\b"
-                    search_result=re.search(regex_string, l_comment, re.IGNORECASE)
-                    #print search_result
-                    if(search_result):
-                        talks_about_butts=True
+                    regex_string = r"\b"+keyword+r"i*e*s*\b" # take plurals into account, sloppily
+                    search_result = re.search(regex_string, l_comment, re.IGNORECASE) # search for the keyword in the comment, ignoring case
+
+                    # print search_result
+                    if (search_result):
+                        talks_about_butts = True
                         print('keyword '+keyword+" worked. Comment author was "+str(comment.author))
-                        print ("permalink: "+perma)
+                        print("permalink: "+perma)
                         #print "TRUE: "+ keyword+"\ncomment: "+perma+"\nauthor:"+str(comment.author)
+
                 # If the comment talks about butts and isn't a comment by this bot, respond with the correct string
                 #TODO: check for unsubscribed users
-                if talks_about_butts and str(comment.author)!="buttsbot" and str(comment.author) not in unsubbed_list:
+                if (talks_about_butts and str(comment.author) != "buttsbot"):
                     print("Comment author: "+str(comment.author))
-                    butt_number=random.randint(0,len(butt_links)-1)
-                    full_reply="You have activated the Astros buttsbot! Here is a picture of [{}) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Suggestions for more butts? Please send me a message or visit /r/ButtsBot!".format(butt_links[butt_number])
+                    butt_number = random.randint(0,len(butt_links)-1)
+                    full_reply = "You have activated the Astros buttsbot! Here is a picture of [{}) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Suggestions for more butts? Please send me a message or visit /r/ButtsBot!".format(butt_links[butt_number])
                     try:
-                        comment.reply(full_reply) #reply to the comment
+                        pass
+                        #comment.reply(full_reply) #reply to the comment
                     except:
                         print("Couldn't reply to comment (comments locked?)")
                     comment.upvote() #upvote the comment
                     print("Replied to a comment: " +str(comment.permalink))
-                    new_replies+=1
-                c.execute('''INSERT INTO permalinks(link, timestamp) VALUES (?,?)''',(perma, datetime.fromtimestamp((submission.created_utc))))
-                #c.execute('''INSERT INTO permalinks(timestamp) VALUES (?)''',(datetime.fromtimestamp(submission.created_utc),))
-                conn.commit()
+                    new_replies += 1
+                    print()
+                db.commit()
         print("-----------------------------------------------------------------")
-    i += 1
+    submission_number += 1
 print('Replied to '+str(new_replies)+' comments')
+
+
+db.close()
