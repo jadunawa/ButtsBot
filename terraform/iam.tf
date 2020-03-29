@@ -29,3 +29,23 @@ resource "aws_iam_role" "tf_cloudwatch_buttsbot_event_target_role" {
 }
 EOF
 }
+
+resource "aws_iam_role_policy" "tf_cloudwatch_buttsbot_event_target_role_policy" {
+  name = "tf-cloudwatch-adaptivepace-event-target-role-policy"
+  role = "${aws_iam_role.tf_cloudwatch_buttsbot_event_target_role.id}"
+
+  policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "batch:SubmitJob"
+            ],
+            "Resource": "*"
+        }
+    ]
+  }
+  EOF
+}
