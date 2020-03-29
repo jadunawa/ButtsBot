@@ -30,8 +30,3 @@ resource "aws_security_group" "tf-buttsbot-checked-links-open-world" {
     protocol    = "tcp"
   }
 }
-
-
-output "tf-buttsbot-checked-links-endpoint" {
-  value = aws_db_instance.tf-buttsbot-checked-links.endpoint
-}
