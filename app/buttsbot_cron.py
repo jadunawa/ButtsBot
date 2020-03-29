@@ -110,8 +110,24 @@ butt_links_astros = ['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
 
 # Braes butts list
 butt_links = ['Folty booty!](https://i.imgur.com/He0D8zn.png',
-             'Max Fried ass!](https://i.imgur.com/ULTeXCs.jpg',
-              'Cole Hamels hiney!](https://i.imgur.com/vKF1rxy.jpg']
+              'Max Fried ass!](https://i.imgur.com/ULTeXCs.jpg',
+              'Cole Hamels hiney!](https://i.imgur.com/vKF1rxy.jpg',
+              'Luke Jackson tush!](https://i.imgur.com/2pSyPm8.jpg',
+              'Marky Mark rump!](https://i.imgur.com/XZwHkWK.jpg',
+              'Southpaw Sean derriere!](https://i.imgur.com/Gpm8jkb.jpg',
+              'Sweet Soroka fanny!](https://i.imgur.com/UlMhvNV.jpg',
+              'Tyler Flowers catching caboose!](https://i.imgur.com/6WIsnpx.jpg',
+              'Albies ass!](https://i.imgur.com/3fdqiVP.jpg',
+              'Camargo caboose!](https://i.imgur.com/U9paYXl.jpg',
+              'Freddie fanny!](https://i.imgur.com/ao6alv5.jpg',
+              'Adeiny arse!](https://i.imgur.com/791dwx3.jpg',
+              'Dansby badonkadonk!](https://i.imgur.com/92i718i.jpg',
+              'Acuña ass!](https://i.imgur.com/aduoctb.jpg',
+              'Ender Inciarte booty!](https://i.imgur.com/KYQEdVI.jpg',
+              'Markakis cakes!](https://i.imgur.com/Z1ea014.jpg',
+              'Marcell Ozuna tush!](https://i.imgur.com/xqxd8r6.jpg',
+              'Austin Riley butt!](https://i.imgur.com/VVCbmpn.jpg',
+              'Cristian Pache backside!](https://i.imgur.com/epQvhp2.jpg']
 
 
 # subreddits to check
