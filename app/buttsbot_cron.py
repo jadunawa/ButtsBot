@@ -109,9 +109,9 @@ butt_links_astros = ['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             ]
 
 # Braes butts list
-butt_links = ['Folty booty](https://i.imgur.com/He0D8zn.png',
-             'Max Fried ass](https://i.imgur.com/ULTeXCs.jpg',
-              'Cole Hamels hiney](https://i.imgur.com/vKF1rxy.jpg']
+butt_links = ['Folty booty!](https://i.imgur.com/He0D8zn.png',
+             'Max Fried ass!](https://i.imgur.com/ULTeXCs.jpg',
+              'Cole Hamels hiney!](https://i.imgur.com/vKF1rxy.jpg']
 
 
 # subreddits to check
@@ -210,7 +210,7 @@ for submission in subreddit.hot(limit=20):
                 if (talks_about_butts and str(comment.author) != "buttsbot"):
                     print("Comment author: "+str(comment.author))
                     butt_number = random.randint(0,len(butt_links)-1)
-                    full_reply = "You have activated the Astros buttsbot! Here is a picture of [{}) Thanks for enjoying Astros buttocks! Go \'Stros!\n\nAny problems with this bot? Suggestions for more butts? Please send me a message or visit /r/ButtsBot!".format(butt_links[butt_number])
+                    full_reply = "You have activated the Buttsbot! Here is a picture of [{}) Thanks for enjoying Braves buttocks! Go Braves!\n\nAny problems with this bot? Suggestions for more butts? Please send me a message or visit /r/ButtsBot!".format(butt_links[butt_number])
                     try:
                         comment.reply(full_reply) #reply to the comment
                     except:
