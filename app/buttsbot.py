@@ -246,5 +246,5 @@ for submission in subreddit.hot(limit=20):
     submission_number += 1
 print('Replied to '+str(new_replies)+' comments')
 
-
+# close database connection
 db.close()
