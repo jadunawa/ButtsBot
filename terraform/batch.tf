@@ -49,6 +49,6 @@ resource "aws_cloudwatch_event_target" "tf_cloudwatch_trainingdata_event_target"
 
   batch_target {
     job_definition = aws_batch_job_definition.tf_batch_buttsbot_job_definition.arn
-    job_name       = "tf-cloudwatch-buttsbot-event-target"
+    job_name       = "tf-cloudwatch-buttsbot-job"
   }
 }
