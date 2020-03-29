@@ -14,3 +14,10 @@ resource "aws_batch_compute_environment" "tf_batch_buttsbot_compute_environment"
     type               = "EC2"
   }
 }
+
+resource "aws_batch_job_queue" "tf_batch_buttsbot_job_queue" {
+  name                 = "tf_batch_buttsbot_job_queue"
+  state                = "ENABLED"
+  priority             = 1
+  compute_environments = ["${aws_batch_compute_environment.tf_batch_buttsbot_compute_environment.arn}"]
+}
