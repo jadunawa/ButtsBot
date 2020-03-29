@@ -1,3 +1,3 @@
-resource "aws_ecr_repository" "buttsbot_repository" {
+resource "aws_ecr_repository" "tf_buttsbot_repository" {
   name = "tf_buttsbot_repository"
 }
