@@ -108,7 +108,7 @@ butt_links_astros = ['Bagwell butt!](http://imgur.com/Vkx6fMI.jpg',
             'Showrrea behind! (photo credit: /u/johnnyracer24)](https://i.imgur.com/onHrWZz.jpg'
             ]
 
-# Braes butts list
+# Braves butts list
 butt_links = ['Folty booty!](https://i.imgur.com/He0D8zn.png',
               'Max Fried ass!](https://i.imgur.com/ULTeXCs.jpg',
               'Cole Hamels hiney!](https://i.imgur.com/vKF1rxy.jpg',
