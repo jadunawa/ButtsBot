@@ -21,3 +21,17 @@ resource "aws_batch_job_queue" "tf_batch_buttsbot_job_queue" {
   priority             = 1
   compute_environments = ["${aws_batch_compute_environment.tf_batch_buttsbot_compute_environment.arn}"]
 }
+
+resource "aws_batch_job_definition" "tf_batch_buttsbot_job_definition" {
+  name = "tf_batch_buttsbot_job_definition"
+  type = "container"
+
+  container_properties = <<CONTAINER_PROPERTIES
+  {
+    "image": "935278506128.dkr.ecr.us-east-1.amazonaws.com/tf_buttsbot_repository:latest",
+    "memory": 1024,
+    "vcpus": 16,
+    "jobRoleArn": "${aws_iam_role.tf_container_job_role.arn}"
+  }
+  CONTAINER_PROPERTIES
+}
